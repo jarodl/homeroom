@@ -2,9 +2,36 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include Authentication
   helper :all # include all helpers, all the time
+  helper_method :current_user_name, :current_user
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password, :password_confirmation
+ 
+  private
+
+  def current_user
+    return User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_user_name
+    User.find(session[:user_id]).username
+  end
+
+  def require_user
+    unless current_user
+      flash[:notice] = "You must Log-in to view this page."
+      redirect_to login_path
+      return false
+    end
+  end
+
+  def require_no_user
+    if current_user
+      flash[:notice] = "You must Log-out to view this page."
+      redirect_to root_url
+      return false
+    end
+  end
 end
