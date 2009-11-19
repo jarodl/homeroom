@@ -1,0 +1,350 @@
+@import "reset.css";
+
+body {
+  background-color: #f6f6f6;
+  font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+  color: #1c1c1c;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+a:visited {
+  color: #003ef1;
+}
+
+/* structure */
+
+.wrapper {
+  margin: 0 auto;
+  width: 960px;
+}
+
+#header {
+  padding-top: 25px;
+  background-color: #1f1f1f;
+  color: #f4f4f4;
+  height: 100px;
+  position: relative;
+}
+
+#main {
+  padding: 25px 0;
+}
+.col {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.col .content {
+  padding: 10px;
+}
+
+#left-col {
+  width: 620px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+}
+
+#right-col {
+  width: 300px;
+}
+
+#footer {
+  height: 60px;
+  clear: both;
+  padding: 20px;
+  text-align: center;
+}
+
+#footer ul {
+  list-style-type: none;
+}
+
+#footer ul li {
+  display: inline;
+  padding: 0 8px;
+}
+
+/* header */
+
+#logo {
+  float: left;
+}
+
+#header .wrapper #login {
+  float: right;
+}
+
+/* navigation */
+
+#nav {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: .45em; /* this is a hack to get the nav bar to line up */
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+ul.nav a {
+  text-decoration: none;
+}
+
+ul.nav {
+  list-style-type: none;
+}
+
+ul.nav li {
+  color: #f4f4f4;
+  background-color: #3e3e3e;
+  display: inline;
+  padding: 10px 12px 5px 12px;
+  margin: 0 2px;
+}
+
+ul.nav li.active {
+  color: #1f1f1f;
+  background-color: #f6f6f6;
+}
+
+ul.nav a:hover li {
+  color: #1f1f1f;
+  background-color: #f6f6f6;
+}
+
+/* typography */
+
+h1 {
+  font-size: 3.0em;
+  font-weight: lighter;
+}
+
+h1 span {
+  font-size: .3em;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+h2.header {
+  background-color: #c4cbdb;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+h3.header {
+  background-color: #f6f6f6;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  padding: 5px 0;
+}
+
+p {
+  font-size: 1em;
+}
+
+span.grey {
+  color: #bcbcbc;
+  font-weight: lighter;
+}
+
+small {
+  font-size: .8em;
+}
+
+/* upload */
+.upload {
+
+}
+
+.upload input {
+  margin: 10px;
+}
+
+/* links */
+
+#links {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+#links h3 {
+  text-transform: uppercase;
+}
+
+#links small a {
+  text-transform: uppercase;
+  color: #202020;
+}
+
+#links ul {
+  padding: 10px 0;
+}
+
+#links ul li {
+  font-size: 1.2em;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul.links {
+  line-height: 28px;
+}
+
+/* calender */
+#calender {
+}
+
+.day {
+  width: 72px;
+  height: 95px;
+  float: left;
+  background-color: #f6f6f6;
+  margin: 3px;
+  padding: 4px;
+}
+
+#first {
+  margin-left: 0;
+}
+
+#last {
+  margin-right: 0;
+  width: 75px; /* this is a nasty fix */
+}
+
+.day h4 {
+}
+
+.day ul {
+
+}
+
+.day ul.active a {
+  color: #e30d0d;
+}
+
+.day ul li {
+  font-size: 1em;
+  padding: 2px 0;
+}
+
+/* sections */
+
+#sections {
+}
+
+.section {
+  padding: 10px 0;
+}
+
+.section table {
+  width: 98%;
+  margin: 10px;
+}
+
+.section table td {
+  padding: 5px 0;
+}
+
+td:last-child {
+  text-align: right;
+  margin-right: 20px;
+}
+
+td+td {
+  text-align: center;
+}
+
+.section ul {
+  padding: 10px;
+}
+
+.section ul li {
+  padding-bottom: 10px;
+}
+
+.section p {
+  padding: 0 10px;
+}
+
+/* classes */
+
+#courses {
+  float: left;
+}
+
+.course {
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+.course-day {
+  width: 100%;
+  margin: 10px 0;
+  padding-left: 10px;
+}
+
+.course-day ul {
+}
+
+.course-day ul li {
+  padding: 5px 0;
+}
+
+/* buttons */
+a.button #add {
+  width: 180px;
+  height: 36px;
+  background: url(../images/add_button.png) no-repeat;
+}
+
+a.button #add {
+  text-decoration: none;
+  padding-left: 45px;
+  padding-top: 11px;
+}
+
+a.button {
+  text-decoration: none;
+  color: #202020;
+  font-weight: bold;
+}
+
+/* login */
+
+#login-box {
+  width: 460px;
+  margin: 10px auto;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+}
+
+#login-box form {
+  margin: 20px;
+}
+
+#login-box p {
+  font-size: 1.2em;
+}
+
+#login-box p input {
+  margin: 10px 0;
+}
