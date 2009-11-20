@@ -22,8 +22,9 @@
           <div id="nav">
             <%= navigation([ 
                            {:overview => root_url},
+                           {:courses => courses_path},
                            {:admin => admin_root_path}
-            ], :authorize => [:admin], :with => :administrator?) %>
+            ], :authorize => [:admin], :with => :administrator?)%>
           </div>
           <!-- end nav -->
 
