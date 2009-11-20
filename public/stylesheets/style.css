@@ -419,3 +419,29 @@ table.users td {
 #new_user form {
   margin: 10px 0;
 }
+
+/* errors */
+
+.fieldWithErrors label {
+  padding: 10px;
+}
+
+.fieldWithErrors input {
+  margin: 0 0 10px 10px;
+}
+
+.fieldWithErrors label {
+  color: #8d1f06;
+  font-weight: bold;
+}
+
+.errorExplanation {
+  background: #dbc5c4;
+  margin: 10px;
+  padding: 10px;
+  border: 1px dashed #000;
+}
+
+.errorExplanation p {
+  margin: 8px 0;
+}
