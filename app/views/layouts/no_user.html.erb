@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "homeroom | effective class management") %></title>
+    <%= stylesheet_link_tag 'style' %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="header">
+
+      <div class="wrapper">
+
+        <div id="logo">
+          <h1>homeroom <span> | effective class management</h1>
+        </div>
+        <!-- end wrapper -->
+
+      </div>
+
+    </div>
+    <!-- end header -->
+
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <%- end -%> 
+
+    <div class="wrapper">
+
+      <%= yield %>
+
+    </div>
+    <!-- end wrapper -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Github</a></li>
+          <li><a href="#">Follow On Twitter</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end footer -->
+
+  </body>
+</html>
+

@@ -1,2 +1,5 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h2 class="header">Showing user: <span class="green"><%= @user.username %></span> <small class="caps"><%= link_to 'edit', edit_admin_user_path(@user) %></small></h2>
+
+<%= link_to '<div id="remove"><p>Delete this user</p></div>', 
+  admin_user_path(@user), :confirm => 'Are you sure?',
+  :method => :delete, :class => 'button' %>

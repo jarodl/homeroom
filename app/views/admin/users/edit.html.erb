@@ -1,2 +1,29 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div id="new_user">
+  <h2 class="header">Editing user: <span class="green"><%= @user.username %></span></h2>
+
+  <% form_for [:admin, @user] do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :email, "Email Address" %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation, "Confirm Password" %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+      <%= f.check_box :is_admin %>
+      <%= f.label :is_admin, "make the user an administrator" %>
+    </p>
+    <p><%= f.submit "Update user", {:class => 'blank'} %></p>
+  <% end %>
+</div>
+

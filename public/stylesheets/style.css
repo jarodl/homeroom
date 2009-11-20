@@ -88,28 +88,31 @@ a:visited {
   font-size: 1.2em;
 }
 
-ul.nav a {
+ul.navigation a {
   text-decoration: none;
 }
 
-ul.nav {
+ul.navigation {
   list-style-type: none;
 }
 
-ul.nav li {
+ul.navigation li {
+  display: inline;
+}
+
+ul.navigation li a {
   color: #f4f4f4;
   background-color: #3e3e3e;
-  display: inline;
   padding: 10px 12px 5px 12px;
   margin: 0 2px;
 }
 
-ul.nav li.active {
+ul.navigation li.current a {
   color: #1f1f1f;
   background-color: #f6f6f6;
 }
 
-ul.nav a:hover li {
+ul.navigation li a:hover {
   color: #1f1f1f;
   background-color: #f6f6f6;
 }
@@ -161,8 +164,18 @@ span.grey {
   font-weight: lighter;
 }
 
+span.green {
+  color: #446d41;
+  font-weight: lighter;
+}
+
 small {
   font-size: .8em;
+}
+
+small.caps {
+  font-size: .6em;
+  text-transform: uppercase;
 }
 
 /* upload */
@@ -310,13 +323,38 @@ td+td {
 }
 
 /* buttons */
-a.button #add {
+a.button #add, #remove {
   width: 180px;
   height: 36px;
-  background: url(../images/add_button.png) no-repeat;
 }
 
 a.button #add {
+  background: url(../images/add_button.png) no-repeat;
+}
+
+a.button #remove {
+  background: url(../images/remove_button.png) no-repeat;
+  margin: 10px;
+}
+
+input[type=submit].add, input[type=submit] {
+  width: 180px;
+  height: 36px;
+  border: none;
+  color: #202020;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+input[type=submit].add {
+  background: url(../images/add_button.png) no-repeat;
+}
+
+input[type=submit].blank {
+  background: url(../images/button.png) no-repeat;
+}
+
+a.button #add, #remove {
   text-decoration: none;
   padding-left: 45px;
   padding-top: 11px;
@@ -354,6 +392,30 @@ a.button {
   margin: 10px auto 0 auto;
   padding: 10px;
   width: 460px;
-  background-color: #c4cbdb;
+  background-color: #faeede;
   border: 1px dashed #1f1f1f;
+}
+
+/* users */
+
+table.users {
+  width: 95%;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+table.users td {
+  padding: 1em;
+}
+
+#new_user p label {
+  padding: 10px;
+}
+
+#new_user p input {
+  margin: 10px 0 10px 10px;
+}
+
+#new_user form {
+  margin: 10px 0;
 }

@@ -12,20 +12,22 @@
       <div class="wrapper">
 
         <div id="logo">
-          <h1>homeroom <span> | effective class management</h1>
+          <h1>homeroom <span> | administration</h1>
           </div>
 
-          <div id="login">
-            <p>Logged in as <%= current_user_name %> (<%= link_to 'Log-out', logout_path %>)</p>
-          </div>		
+          <% if current_user %> 
+            <div id="login">
+              <p>Logged in as <%= current_user_name %> (<%= link_to 'Log-out', logout_path %>)</p>
+            </div>		
 
-          <div id="nav">
-            <%= navigation([ 
-                           {:overview => root_url},
-                           {:admin => admin_root_path}
-            ], :authorize => [:admin], :with => :administrator?) %>
-          </div>
-          <!-- end nav -->
+            <div id="nav">
+              <%= navigation([ 
+                {:home => root_path},
+                {:overview => admin_root_path}, 
+                {:users => admin_users_path}
+              ]) %>
+            </div>
+          <% end %>
 
         </div>
         <!-- end wrapper -->
@@ -46,28 +48,9 @@
         </div>
 
         <div class="col" id="right-col">
-
-          <a class="button" href="#">
-            <div id="add">
-              <p>New quick link</p>
-            </div>
-          </a>
-
-          <div id="links">
-            <h3>Quick Links:</h3>
-            <ul class="links">
-              <li><a href="#">Submit CS:321 homework</a></li>
-              <li><a href="#">View Math:152 grades</a></li>
-              <li><a href="#">Download CS:340 homework</a></li>
-              <li><a href="#">View Chem:121A syllabus</a></li>
-            </ul>
-            <small><a href="#">Edit quick links</a></small>
-          </div>
-
+          <%= yield(:sidebar) %>
         </div>
-        <!-- end right-col -->
       </div>
-      <!-- end main -->
 
     </div>
     <!-- end wrapper -->
@@ -87,3 +70,4 @@
 
   </body>
 </html>
+

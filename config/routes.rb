@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :admin do |admin|
     admin.resources :users
+    admin.root :controller => 'admin'
   end
 
   map.connect ':controller/:action/:id'
