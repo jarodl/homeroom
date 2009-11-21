@@ -45,7 +45,8 @@ class Admin::UsersController < ApplicationController
       flash[:notice] = "User #{@user.username} successfully deleted."
       redirect_to admin_users_path
     else
-      flash[:notice] = "User could not be deleted."
+      flash[:notice] = "The last user can't be deleted."
+      render :action => 'show'
     end
   end
 

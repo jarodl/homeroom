@@ -420,6 +420,20 @@ table.users td {
   margin: 10px 0;
 }
 
+/* forms */
+
+#form p label {
+  padding: 10px;
+}
+
+#form p input {
+  margin: 10px 0 10px 10px;
+}
+
+#form form {
+  margin: 10px 0;
+}
+
 /* errors */
 
 .fieldWithErrors label {

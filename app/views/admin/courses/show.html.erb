@@ -1,2 +1,6 @@
-<h1>Admin::Courses#show</h1>
-<p>Find me in app/views/admin/courses/show.html.erb</p>
+<h2 class="header">Showing course: <span class="green"><%= @course.title %></span> <small class="caps"><%= link_to 'edit', edit_admin_course_path(@course) %></small></h2>
+
+<%= link_to '<div id="remove"><p>Delete this course</p></div>', 
+  admin_course_path(@course), :confirm => 'Are you sure?',
+  :method => :delete, :class => 'button' %>
+

@@ -1,2 +1,13 @@
-<h1>Admin::Courses#new</h1>
-<p>Find me in app/views/admin/courses/new.html.erb</p>
+<div id="form">
+<h2 class="header">Create new course</h2>
+
+<% form_for [:admin, @course] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p><%= f.submit "Create course", {:class => 'add'} %></p>
+<% end %>
+</div>

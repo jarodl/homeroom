@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_name
-    User.find(session[:user_id]).username
+    return User.find(session[:user_id]).username if session[:user_id]
   end
 
   def require_user

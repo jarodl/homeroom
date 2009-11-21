@@ -1,2 +1,19 @@
-<h1>Admin::Courses#index</h1>
-<p>Find me in app/views/admin/courses/index.html.erb</p>
+<h2 class="header">All courses</h2>
+
+<div class="content">
+  <div id="courses">
+    <% @courses.each do |course| %>
+      <div class="course">
+        <h3 class="header"><%= link_to course.title, admin_course_path(course) %><span class="grey"> - announcements</span></h3>
+        <div class="course-day">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+  <%= link_to '<div id="add"><p>Create new course</p></div>', 
+    new_admin_course_path, :class => 'button' %>
+<% end %>
+

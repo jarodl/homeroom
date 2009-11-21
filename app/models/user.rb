@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
   validates_length_of :password, :minimum => 4, :allow_blank => true
+
+  before_destroy :check_if_last_user
   
   # login can be either username or email address
   def self.authenticate(login, pass)
@@ -28,7 +30,11 @@ class User < ActiveRecord::Base
   end
   
   private
-  
+
+  def check_if_last_user
+    User.count != 1
+  end
+
   def prepare_password
     unless password.blank?
       self.password_salt = Digest::SHA1.hexdigest([Time.now, rand].join)

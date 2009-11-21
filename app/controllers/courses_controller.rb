@@ -2,13 +2,14 @@ class CoursesController < ApplicationController
   current_tab :courses
 
   def index
+    @courses = Course.all
   end
 
   def show
   end
 
   def administrator?
-    require_admin_user
+    current_user.is_admin?
   end
 
 end
