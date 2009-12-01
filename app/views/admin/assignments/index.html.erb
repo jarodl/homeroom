@@ -1,0 +1,20 @@
+<h2 class="header">All assignments</h2>
+
+<div class="content">
+  <div id="courses">
+    <% @assignments.each do |assignment| %>
+      <div class="course">
+        <h3 class="header"><%= link_to assignment.name, admin_assignment_path(assignment) %></h3>
+        <div class="course-day">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+  <%= link_to '<div id="add">New assignment</div>', 
+    new_admin_assignment_path, :class => 'button' %>
+<% end %>
+
+

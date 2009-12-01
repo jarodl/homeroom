@@ -9,10 +9,24 @@
       <%= f.text_field :title %>
     </p>
 
-    <p>
-      <%= f.label :students %><br />
-      <%= f.collection_select(:student_ids, @students, :id, :username, {}, :multiple => true) %>
-    </p>
+    <% f.fields_for :assignments do |sf| %>
+      <p>
+        <%= sf.label :name %><br />
+        <%= sf.text_field :name %>
+      </p>
+
+      <p>
+        <%= sf.label :due %><br />
+        <%= sf.select_datetime :due %>
+      </p>
+
+      <% unless sf.object.new_record? %>
+        <p>
+          <%= sf.label :_delete, 'Remove:' %>
+          <%= sf.check_box :_delete %>
+        </p>
+      <% end %>
+    <% end %>
 
     <p><%= f.submit "Update course", {:class => 'blank'} %></p>
   <% end %>

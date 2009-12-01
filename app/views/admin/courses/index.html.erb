@@ -4,7 +4,7 @@
   <div id="courses">
     <% @courses.each do |course| %>
       <div class="course">
-        <h3 class="header"><%= link_to course.title, admin_course_path(course) %><span class="grey"> - announcements</span></h3>
+        <h3 class="header"><%= link_to course.title, admin_course_path(course) %></h3>
         <div class="course-day">
         </div>
       </div>
@@ -13,7 +13,7 @@
 </div>
 
 <% content_for :sidebar do %>
-  <%= link_to '<div id="add"><p>Create new course</p></div>', 
+  <%= link_to '<div id="add">Create new course</div>', 
     new_admin_course_path, :class => 'button' %>
 <% end %>
 

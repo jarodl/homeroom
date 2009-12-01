@@ -12,7 +12,6 @@ class Admin::CoursesController < ApplicationController
 
   def edit
     @course = Course.find(params[:id])
-    @students = Student.all
   end
 
   def update
