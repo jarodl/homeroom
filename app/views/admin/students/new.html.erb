@@ -1,0 +1,25 @@
+<div id="new_user">
+  <h2 class="header">Create new student</h2>
+
+  <% form_for [:admin, @student] do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :email, "Email Address" %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation, "Confirm Password" %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p><%= f.submit "Add student", { :class => "add" }%></p>
+  <% end %>
+</div>
+

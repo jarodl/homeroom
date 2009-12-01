@@ -12,6 +12,7 @@ class Admin::CoursesController < ApplicationController
 
   def edit
     @course = Course.find(params[:id])
+    @students = Student.all
   end
 
   def update
@@ -26,6 +27,7 @@ class Admin::CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @professors = Professor.all
   end
 
   def create

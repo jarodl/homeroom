@@ -1,5 +1,25 @@
 <h2 class="header">Showing user: <span class="green"><%= @user.username %></span> <small class="caps"><%= link_to 'edit', edit_admin_user_path(@user) %></small></h2>
 
+<table class="users">
+  <tr>
+    <th>Title</th>
+    <th>Professor</th>
+  </tr>
+
+  <% @user.courses.each do |course| %>
+    <tr>
+      <td>
+        <%= link_to course.title, admin_course_path(course)%>
+      </td>
+      <td>
+        <%= course.professor%>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+
+
 <%= link_to '<div id="remove"><p>Delete this user</p></div>', 
   admin_user_path(@user), :confirm => 'Are you sure?',
   :method => :delete, :class => 'button' %>

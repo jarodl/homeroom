@@ -12,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
     admin.resources :courses
     admin.root :controller => 'admin'
+    admin.resources :students
+    admin.resources :professors
   end
 
   map.connect ':controller/:action/:id'

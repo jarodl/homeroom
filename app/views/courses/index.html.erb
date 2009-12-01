@@ -1,7 +1,14 @@
 <h2 class="header">Your courses</h2>
 
-<div id="courses">
-  <% @courses.each do |course| %>
-  <% end %>
-</div>
+<div class="content">
 
+  <div id="courses">
+    <% @courses.each do |course| %>
+      <div class="course">
+        <h3 class="header"><%= link_to course.title, course_path(course) %><span class="grey"> - announcements</span></h3>
+        <div class="course-day">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

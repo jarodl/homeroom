@@ -9,12 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091128222650) do
+ActiveRecord::Schema.define(:version => 20091130030258) do
 
   create_table "courses", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "professor_id"
   end
 
   create_table "courses_students", :id => false, :force => true do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20091128222650) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.string   "type",                             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_admin",      :default => false

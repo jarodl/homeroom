@@ -1,2 +1,19 @@
-<h1>Admin::Courses#edit</h1>
-<p>Find me in app/views/admin/courses/edit.html.erb</p>
+<div id="new_user">
+  <h2 class="header">Editing course: <span class="green"><%= @course.title%></span></h2>
+
+  <% form_for [:admin, @course] do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :students %><br />
+      <%= f.collection_select(:student_ids, @students, :id, :username, {}, :multiple => true) %>
+    </p>
+
+    <p><%= f.submit "Update course", {:class => 'blank'} %></p>
+  <% end %>
+</div>

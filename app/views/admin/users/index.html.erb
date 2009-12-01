@@ -4,6 +4,7 @@
   <tr>
     <th>Username</th>
     <th>E-mail</th>
+    <th>Type</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -14,13 +15,18 @@
       <td>
         <%= user.email %>
       </td>
+      <td>
+        <%= user.class %>
+      </td>
     </tr>
   <% end %>
 
 </table>
 
 <% content_for :sidebar do %>
-  <%= link_to '<div id="add"><p>Create new user</p></div>', 
-    new_admin_user_path, :class => 'button' %>
+  <%= link_to '<div id="add">Create new student</div>', new_admin_student_path, :class => 'button'%>
+  <%= link_to '<p>Create new professor</p>', new_admin_professor_path %>
+  <%= link_to '<p>Create new user</p>', new_admin_user_path %>
+ 
   
 <% end %>

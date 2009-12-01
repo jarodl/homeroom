@@ -20,11 +20,15 @@
           </div>		
 
           <div id="nav">
-            <%= navigation([ 
-                           {:overview => root_url},
-                           {:courses => courses_path},
-                           {:admin => admin_root_path}
-            ], :authorize => [:admin], :with => :administrator?)%>
+            <ul class="navigation">
+              <li><%= link_to 'Overview', root_path %></li>
+              <% current_user.courses.each do |course| %>
+                <li><%= link_to course.title, course_path(course) %></li>
+              <% end %>
+              <% if current_user.is_admin? %>
+                <li><%= link_to 'Admin', admin_root_path %></li>
+              <% end %>
+            </ul>
           </div>
           <!-- end nav -->
 

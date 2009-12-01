@@ -1,5 +1,28 @@
 <h2 class="header">Showing course: <span class="green"><%= @course.title %></span> <small class="caps"><%= link_to 'edit', edit_admin_course_path(@course) %></small></h2>
 
+<table class="users">
+  <tr>
+    <th>Username</th>
+    <th>E-mail</th>
+    <th>Type</th>
+  </tr>
+
+  <% @course.students.each do |student| %>
+    <tr>
+      <td>
+        <%= link_to student.username, admin_user_path(student)%>
+      </td>
+      <td>
+        <%= student.email %>
+      </td>
+      <td>
+        <%= student.class %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+
 <%= link_to '<div id="remove"><p>Delete this course</p></div>', 
   admin_course_path(@course), :confirm => 'Are you sure?',
   :method => :delete, :class => 'button' %>
