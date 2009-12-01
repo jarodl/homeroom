@@ -1,11 +1,12 @@
 class CoursesController < ApplicationController
-  current_tab :courses
 
   def index
     @courses = Course.all
   end
 
   def show
+    @course = Course.find(params[:id])
+    session[:current_id] = @course.id
   end
 
   def administrator?

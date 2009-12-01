@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   current_tab :overview
 
   def index
+    session[:current_id] = 'home'
   end
 
   def administrator?

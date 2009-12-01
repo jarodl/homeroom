@@ -21,9 +21,9 @@
 
           <div id="nav">
             <ul class="navigation">
-              <li><%= link_to 'Overview', root_path %></li>
+              <li <%= 'class = "current"' if session[:current_id] == 'home'%>><%= link_to 'Overview', root_path %></li>
               <% current_user.courses.each do |course| %>
-                <li><%= link_to course.title, course_path(course) %></li>
+                <li <%= 'class = "current"' if session[:current_id] == course.id %>><%= link_to course.title, course_path(course) %></li>
               <% end %>
               <% if current_user.is_admin? %>
                 <li><%= link_to 'Admin', admin_root_path %></li>
