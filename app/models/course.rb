@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   belongs_to :professor, :class_name => "Professor"
+  has_many :assignments
 
   has_and_belongs_to_many :students, :class_name => "Student", :uniq => true
 

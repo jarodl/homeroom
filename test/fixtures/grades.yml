@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  points_poss: 1
+  points_earned: 1
+
+two:
+  points_poss: 1
+  points_earned: 1

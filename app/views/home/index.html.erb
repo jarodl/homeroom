@@ -61,65 +61,18 @@
 
   <div id="courses">
 
-    <div class="course">
-      <h3 class="header">Math:152 <span class="grey">- announcements</span></h3>
+    <% @courses.each do |course| %>
+      <div class="course">
+        <h3 class="header"><%= course.title %><span class="grey">- announcements</span></h3>
 
-      <div class="course-day">
-        <h3>Today</h3>
-        <ul>
-          <li><a href="#">Grades for Exam I were posted</a></li>
-          <li><a href="#">A comment was posted on Homework I</a></li>
-        </ul>
+        <div class="course-day">
+          <h3>Today</h3>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
       </div>
-
-      <div class="course-day">
-        <h3>Yesterday</h3>
-        <ul>
-          <li><a href="#">A video tutorial was uploaded.</a></li>
-        </ul>
-      </div>
-
-    </div>
-    <!--  end course -->
-
-    <div class="course">
-      <h3 class="header">Chem:121A <span class="grey">- announcements</span></h3>
-
-      <div class="course-day">
-        <h3>Yesterday</h3>
-        <ul>
-          <li><a href="#">Grades for Assignment II were posted.</a></li>
-        </ul>
-      </div>
-
-    </div>
-    <!--  end course -->
-
-    <div class="course">
-      <h3 class="header">CS:321 <span class="grey">- announcements</span></h3>
-
-      <div class="course-day">
-        <h3>Thursday, October 29th</h3>
-        <ul>
-          <li><a href="#">Grades for Statistics II were posted.</a></li>
-        </ul>
-      </div>
-
-    </div>
-    <!--  end course -->
-
-    <div class="course">
-      <h3 class="header">Math:321 <span class="grey">- announcements</span></h3>
-
-      <div class="course-day">
-        <h3>Tuesday, October 27th</h3>
-        <ul>
-          <li><a href="#">A comment was posted on Assignment 3.</a></li>
-        </ul>
-      </div>
-
-    </div>
-    <!--  end course -->
+    <% end %>
 
   </div>
   <!-- end courses -->

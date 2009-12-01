@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   before_filter :require_user
-  current_tab :overview
 
   def index
     session[:current_id] = 'home'
+    @courses = current_user.courses
   end
 
   def administrator?

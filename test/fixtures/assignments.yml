@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  due: 2009-12-01 00:03:00
+  turned_in: false
+
+two:
+  name: MyString
+  due: 2009-12-01 00:03:00
+  turned_in: false
