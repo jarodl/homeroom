@@ -1,64 +1,6 @@
 <h2 class="header">Latest activity in your classes</h2>
 
 <div class="content">
-  <div id="calender">
-    <h3 class="header">This week</h3>
-
-    <div id="first" class="day">
-      <h4>Sun.</h4>
-      <ul class="active">
-        <li><a href="#">CS:321 homework</a></li>
-      </ul>
-    </div>
-
-    <div class="day">
-      <h4>Mon.</h4>
-      <ul>
-        <li><a href="#">Math:152 homework</a></li>
-        <li><a href="#">Chem:121A exam</a></li>
-      </ul>
-    </div>
-
-    <div class="day">
-      <h4>Tues.</h4>
-      <ul>
-      </ul>
-    </div>
-
-
-    <div class="day">
-      <h4>Wed.</h4>
-      <ul>
-      </ul>
-    </div>
-
-
-    <div class="day">
-      <h4>Thurs.</h4>
-      <ul>
-        <li><a href="#">CS:340 exam</a></li>
-        <li><a href="#">Math:321 homework</a></li>
-      </ul>
-    </div>
-
-
-    <div class="day">
-      <h4>Fri.</h4>
-      <ul>
-      </ul>
-    </div>
-
-
-    <div id="last" class="day">
-      <h4>Sat.</h4>
-      <ul>
-        <li><a href="#">CS:321 group meeting</a></li>
-      </ul>
-    </div>
-
-  </div>
-  <!-- end calender -->
-
   <div id="courses">
 
     <% @courses.each do |course| %>
@@ -66,9 +8,10 @@
         <h3 class="header"><%= course.title %><span class="grey">- announcements</span></h3>
 
         <div class="course-day">
-          <h3>Today</h3>
           <ul>
-            <li></li>
+            <% course.assignments.each do |assignment| %>
+              <li><%= assignment.name + ' is in ' + distance_of_time_in_words_to_now(assignment.due) %></li>
+            <% end %>
           </ul>
         </div>
       </div>
