@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091202215802) do
+ActiveRecord::Schema.define(:version => 20091202225148) do
 
   create_table "assignments", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20091202215802) do
     t.datetime "updated_at"
     t.integer  "professor_id"
     t.integer  "quicklink_id"
+    t.text     "information"
   end
 
   create_table "courses_students", :id => false, :force => true do |t|

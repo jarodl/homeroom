@@ -1,41 +1,51 @@
 <div id="new_user">
   <h2 class="header">Editing course: <span class="green"><%= @course.title%></span></h2>
-
-  <% form_for [:admin, @course] do |f| %>
-    <%= f.error_messages %>
-
-    <p>
-      <%= f.label :title %><br />
-      <%= f.text_field :title %>
-    </p>
-
-    <% Student.all.each do |student| %>
-      <p>
-        <%= check_box_tag "course[student_ids][]", student.id, @course.students.include?(student) %>
-        <%= student.name %>
-      </p>
-    <% end %>
-
-    <h3 class="header">Assignments</h3>
-    <% f.fields_for :assignments do |sf| %>
-      <p>
-        <%= sf.label :name %><br />
-        <%= sf.text_field :name %>
-      </p>
+  <div class="content">
+    <% form_for [:admin, @course] do |f| %>
+      <%= f.error_messages %>
 
       <p>
-        <%= sf.label :due %><br />
-        <%= sf.datetime_select :due %>
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
       </p>
 
-      <% unless sf.object.new_record? %>
+      <h3 class="header">Students:</h3>
+
+      <% Student.all.each do |student| %>
         <p>
-          <%= sf.label :_delete, 'Remove:' %>
-          <%= sf.check_box :_delete %>
+          <%= check_box_tag "course[student_ids][]", student.id, @course.students.include?(student) %>
+          <%= student.name %>
         </p>
       <% end %>
-    <% end %>
 
-    <p><%= f.submit "Update course", {:class => 'blank'} %></p>
-  <% end %>
+      <h3 class="header">Assignments:</h3>
+      <% f.fields_for :assignments do |sf| %>
+        <p>
+          <%= sf.label :name %><br />
+          <%= sf.text_field :name %>
+        </p>
+
+        <p>
+          <%= sf.label :due %><br />
+          <%= sf.datetime_select :due %>
+        </p>
+
+        <% unless sf.object.new_record? %>
+          <p>
+            <%= sf.label :_delete, 'Remove:' %>
+            <%= sf.check_box :_delete %>
+          </p>
+        <% end %>
+      <% end %>
+
+      <h3 class="header">Course information:</h3>
+
+      <p>
+        <%= f.label :information, 'Please add anything students should know here.' %>
+        <%= f.text_area :information %>
+      </p>
+
+      <p><%= f.submit "Update course", {:class => 'blank'} %></p>
+    <% end %>
+  </div>
 </div>
