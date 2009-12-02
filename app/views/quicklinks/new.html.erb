@@ -1,0 +1,16 @@
+<div id="new_user">
+  <h2 class="header">Create new quicklink</h2>
+
+  <% form_for @quicklink do |f| %>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :title%><br />
+      <%= f.text_field :title %>
+    </p>
+
+    <% @student.courses.each do |course| %>
+    <% end %>
+
+    <p><%= f.submit "Add quicklink", { :class => "add" }%></p>
+  <% end %>
+</div>

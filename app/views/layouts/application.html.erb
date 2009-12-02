@@ -52,18 +52,23 @@
 
         <div class="col" id="right-col">
 
-          <%= link_to '<div id="add">New quick link</div>', {}, :class => :button %>
+          <%= link_to '<div id="add">New quick link</div>', new_quicklink_path, :class => :button %>
 
-          <div id="links">
-            <h3>Quick Links:</h3>
-            <ul class="links">
-              <li><a href="#">Submit CS:321 homework</a></li>
-              <li><a href="#">View Math:152 grades</a></li>
-              <li><a href="#">Download CS:340 homework</a></li>
-              <li><a href="#">View Chem:121A syllabus</a></li>
-            </ul>
-            <small><a href="#">Edit quick links</a></small>
-          </div>
+          <% unless current_user.quicklinks.empty? %>
+            <div id="links">
+              <h3>Quick Links:</h3>
+
+              <ul class="links">
+
+                <% current_user.quicklinks.each do |quicklink| %>
+                  <li><%= link_to quicklink.title, {} %></li>
+                <% end %>
+
+              </ul>
+
+              <small><%= link_to 'Edit quick links', {} %></small>
+            </div>
+          <% end %>
 
         </div>
         <!-- end right-col -->
