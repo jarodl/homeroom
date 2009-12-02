@@ -9,6 +9,14 @@
       <%= f.text_field :title %>
     </p>
 
+    <% Student.all.each do |student| %>
+      <p>
+        <%= check_box_tag "course[student_ids][]", student.id, @course.students.include?(student) %>
+        <%= student.name %>
+      </p>
+    <% end %>
+
+    <h3 class="header">Assignments</h3>
     <% f.fields_for :assignments do |sf| %>
       <p>
         <%= sf.label :name %><br />
@@ -17,7 +25,7 @@
 
       <p>
         <%= sf.label :due %><br />
-        <%= sf.select_datetime :due %>
+        <%= sf.datetime_select :due %>
       </p>
 
       <% unless sf.object.new_record? %>

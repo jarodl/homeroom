@@ -1,16 +1,28 @@
 <h2 class="header">All assignments</h2>
 
-<div class="content">
-  <div id="courses">
-    <% @assignments.each do |assignment| %>
-      <div class="course">
-        <h3 class="header"><%= link_to assignment.name, admin_assignment_path(assignment) %></h3>
-        <div class="course-day">
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<table class="users">
+  <tr>
+    <th>Name</th>
+    <th>Due Date</th>
+    <th>Course</th>
+  </tr>
+
+  <% @assignments.each do |assignment| %>
+    <tr>
+      <td>
+        <%= link_to assignment.name, admin_assignment_path(assignment)%>
+      </td>
+      <td>
+        <%= 'in ' + distance_of_time_in_words_to_now(assignment.due) %>
+      </td>
+      <td>
+        <%= Course.find(assignment.course_id).title %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+
 
 <% content_for :sidebar do %>
   <%= link_to '<div id="add">New assignment</div>', 

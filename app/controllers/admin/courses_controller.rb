@@ -1,4 +1,5 @@
 class Admin::CoursesController < ApplicationController
+  before_filter :require_admin_user
   layout "admin"
   current_tab :courses
 
@@ -15,6 +16,8 @@ class Admin::CoursesController < ApplicationController
   end
 
   def update
+    params[:course][:student_ids] ||= []
+
     @course = Course.find(params[:id])
     if @course.update_attributes(params[:course])
       flash[:notice] = "Updated #{@course.title}."

@@ -17,4 +17,18 @@ class Admin::StudentsController < ApplicationController
     end
   end
 
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    if @student.update_attributes(params[:student])
+      flash[:notice] = "Student was successfully updated."
+      redirect_to admin_user_path(@student)
+    else
+      render :action => 'edit'
+    end
+  end
+
 end

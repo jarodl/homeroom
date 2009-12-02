@@ -8,6 +8,12 @@
     <%= f.text_field :title %>
   </p>
 
+  <p>
+    <%= f.label :professor %><br /> 
+    <%= collection_select(:course, :professor_id, Professor.all, :id, :name) %>
+  </p>
+
+
   <p><%= f.submit "Create course", {:class => 'add'} %></p>
 <% end %>
 </div>
