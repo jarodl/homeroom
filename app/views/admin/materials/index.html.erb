@@ -1,0 +1,29 @@
+<h2 class="header">All materials</h2>
+
+<table class="users">
+  <tr>
+    <th>Name</th>
+    <th>Course</th>
+  </tr>
+
+  <% @materials.each do |material| %>
+    <tr>
+      <td>
+        <%= link_to material.name, material.upload.url%>
+      </td>
+      <td>
+        <%= Course.find(material.course_id).title %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+<% content_for :sidebar do %>
+  <%= link_to '<div id="add">New material</div>', 
+    new_admin_material_path, :class => 'button' %>
+<% end %>
+
+
+

@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :courses
   map.resources :quicklinks
   map.resources :assignments
+  map.resources :materials
 
   map.namespace :admin do |admin|
     admin.resources :users
@@ -18,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :students
     admin.resources :professors
     admin.resources :assignments
+    admin.resources :materials
   end
 
   map.connect ':controller/:action/:id'

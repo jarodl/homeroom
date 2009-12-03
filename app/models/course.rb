@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
   belongs_to :professor, :class_name => "Professor"
   has_many :assignments, :uniq => true
+  has_many :materials, :uniq => true
   has_and_belongs_to_many :students, :class_name => "Student", :uniq => true
   accepts_nested_attributes_for :assignments, :allow_destroy => true
 
