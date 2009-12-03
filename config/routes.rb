@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :students
   map.resources :courses
   map.resources :quicklinks
+  map.resources :assignments
 
   map.namespace :admin do |admin|
     admin.resources :users

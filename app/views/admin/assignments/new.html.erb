@@ -1,28 +1,32 @@
 <div id="new_user">
   <h2 class="header">New assignment</h2>
 
-  <% form_for [:admin, @assignment] do |f| %>
-    <%= f.error_messages %>
+  <div class="content">
+    <% form_for [:admin, @assignment], :html => { :multipart => true } do |f| %>
+      <%= f.error_messages %>
 
-    <p>
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </p>
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
 
-    <p>
-      <%= f.label :course %><br /> 
-      <%= collection_select(:assignment, :course_id, Course.all, :id, :title) %>
-    </p>
+      <p>
+        <%= f.label :course %><br /> 
+        <%= collection_select(:assignment, :course_id, Course.all, :id, :title) %>
+      </p>
 
-    <p>
-      <%= f.label :due %><br />
-      <%= f.datetime_select :due %>
-    </p>
+      <p>
+        <%= f.label :due %><br />
+        <%= f.datetime_select :due %>
+      </p>
 
+      <p>
+        <%= f.label :file %><br />
+        <%= f.file_field :upload %>
+      </p>
 
-
-
-    <p><%= f.submit "Create assignment", {:class => 'blank'} %></p>
-  <% end %>
+      <p><%= f.submit "Create assignment", {:class => 'blank'} %></p>
+    <% end %>
+  </div>
 </div>
 

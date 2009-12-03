@@ -441,6 +441,10 @@ table.users td {
   margin: 10px 0;
 }
 
+form select {
+  margin: 10px;
+}
+
 /* errors */
 
 .fieldWithErrors label {
