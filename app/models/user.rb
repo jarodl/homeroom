@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   private
 
   def check_if_last_user
-    #User.count != 1
+    User.count != 1
   end
 
   def prepare_password

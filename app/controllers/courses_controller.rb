@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @grades = Student.find(session[:user_id]).grades
     session[:current_id] = @course.id
   end
 

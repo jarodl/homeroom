@@ -3,5 +3,4 @@ class Material < ActiveRecord::Base
   has_attached_file :upload
 
   validates_presence_of :name, :course_id
-  validates_uniqueness_of :name
 end

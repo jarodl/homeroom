@@ -1,4 +1,4 @@
-<h2 class="header"><%= @course.title %></h2>
+<h2 class="header"><%= @course.title %><span class="green"> - <%= @course.professor.name %></span></h2>
 
 <div class="content">
 
@@ -9,7 +9,13 @@
         <tr>
           <td><%= assignment.name %></td>
           <td><%= assignment.due.strftime('%m/%d/%Y') %></td>
-          <td></td>
+          <% if @grades.empty? %>
+            <td>Not yet graded</td>
+          <% else %>
+            <% @grades.each do |grade| %>
+              <td><%= grade.points_earned if grade.assignment_id == assignment.id %></td>
+            <% end %>
+          <% end %>
         </tr>
       <% end %>
     </table>
@@ -28,13 +34,16 @@
     <h3 class="header">Assignments</h3>
     <ul>
       <% @course.assignments.each do |assignment| %>
-        <li><%= link_to assignment.name, assignment.upload.url %></li>
+        <li><%= link_to assignment.name, course_assignment_path(assignment) %></li>
       <% end %>
     </ul>
   </div>
 
   <div class="section">
     <h3 class="header">Course information</h3>
+    <ul>
+      <li><%= link_to 'View Syllabus', @course.syllabus.url %></li>
+    </ul>
     <%= @course.information %>
   </div>
 </div>

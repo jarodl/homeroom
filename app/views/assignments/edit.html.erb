@@ -1,0 +1,21 @@
+<h2 class="header"><%= @assignment.name %><span class="green"> for <%= Course.find(@assignment.course_id).title %></span></h2>
+
+<div class="content">
+  <% if @assignment.upload %>
+    <%= link_to 'View assignment', @assignment.upload.url %>
+  <% end %>
+
+    <% form_for @assignment, :html => { :multipart => true } do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :file %><br />
+        <%= f.file_field :upload %>
+      </p>
+
+      <p><%= f.submit "Upload assignment", {:class => 'blank'} %></p>
+    <% end %>
+
+
+</div>
+

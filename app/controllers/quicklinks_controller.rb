@@ -2,7 +2,7 @@ class QuicklinksController < ApplicationController
   before_filter :require_user
   
   def new
-    @user = Professor.find(session[:user_id]) || Student.find(session[:user_id])
+    @user = User.find(session[:user_id])
     @quicklink = Quicklink.new
   end
 

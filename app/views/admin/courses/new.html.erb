@@ -1,24 +1,31 @@
 <div id="form">
-<h2 class="header">Create new course</h2>
+  <h2 class="header">Create new course</h2>
 
-<% form_for [:admin, @course], :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
+  <div class="content">
+    <% form_for [:admin, @course], :html => { :multipart => true } do |f| %>
+      <%= f.error_messages %>
+      <p>
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </p>
 
-  <p>
-    <%= f.label :professor %><br /> 
-    <%= collection_select(:course, :professor_id, Professor.all, :id, :name) %>
-  </p>
+      <p>
+        <%= f.label :professor %><br /> 
+        <%= collection_select(:course, :professor_id, Professor.all, :id, :name) %>
+      </p>
 
-  <p>
-    <%= f.label :syllabus %><br />
-    <%= f.file_field :syllabus %>
-  </p>
+      <p>
+        <%= f.label :information %><br />
+        <%= f.text_area :information %>
+      </p>
+
+      <p>
+        <%= f.label :syllabus %><br />
+        <%= f.file_field :syllabus %>
+      </p>
 
 
-  <p><%= f.submit "Create course", {:class => 'add'} %></p>
-<% end %>
+      <p><%= f.submit "Create course", {:class => 'add'} %></p>
+    <% end %>
+  </div>
 </div>
