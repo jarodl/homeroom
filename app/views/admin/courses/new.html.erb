@@ -1,7 +1,7 @@
 <div id="form">
 <h2 class="header">Create new course</h2>
 
-<% form_for [:admin, @course] do |f| %>
+<% form_for [:admin, @course], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :title %><br />
@@ -11,6 +11,11 @@
   <p>
     <%= f.label :professor %><br /> 
     <%= collection_select(:course, :professor_id, Professor.all, :id, :name) %>
+  </p>
+
+  <p>
+    <%= f.label :syllabus %><br />
+    <%= f.file_field :syllabus %>
   </p>
 
 

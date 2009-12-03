@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_filter :require_admin_user
+  before_filter :require_one_user
   layout "admin"
   current_tab :users
 

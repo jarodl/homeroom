@@ -12,7 +12,7 @@
 
       <p>
         <%= f.label :course %><br /> 
-        <%= collection_select(:assignment, :course_id, Course.all, :id, :title) %>
+        <%= collection_select(:material, :course_id, Course.all, :id, :title) %>
       </p>
 
       <p>

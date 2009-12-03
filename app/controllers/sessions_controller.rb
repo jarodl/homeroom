@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => :destroy
+  before_filter :require_one_user, :only => [:new]
   layout "no_user"
 
   def new

@@ -11,6 +11,11 @@
       </p>
 
       <p>
+        <%= f.label :points %><br />
+        <%= f.text_field :points, :size => 4 %>
+      </p>
+
+      <p>
         <%= f.label :course %><br /> 
         <%= collection_select(:assignment, :course_id, Course.all, :id, :title) %>
       </p>

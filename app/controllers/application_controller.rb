@@ -42,4 +42,14 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+
+  def require_one_user
+    if User.count == 0
+      @first_user = Student.new(:username => 'admin',
+                                :password => 'admin',
+                                :password_confirmation => 'admin', 
+                                :email => 'admin@domain.com')
+      @first_user.save
+    end
+  end
 end

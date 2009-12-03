@@ -4,10 +4,24 @@
 
   <div class="section">
     <h3 class="header">Grades</h3>
+    <table>
+      <% @course.assignments.each do |assignment| %>
+        <tr>
+          <td><%= assignment.name %></td>
+          <td><%= assignment.due.strftime('%m/%d/%Y') %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 
   <div class="section">
     <h3 class="header">Materials</h3>
+    <ul>
+      <% @course.materials.each do |material| %>
+        <li><%= link_to material.name, material.upload.url %></li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="section">

@@ -10,7 +10,7 @@
         <div class="course-day">
           <ul>
             <% course.assignments.each do |assignment| %>
-              <li><%= assignment.name + ' is in ' + distance_of_time_in_words_to_now(assignment.due) %></li>
+              <li><%= link_to assignment.name + ' is due in ' + distance_of_time_in_words_to_now(assignment.due), {}  %></li>
             <% end %>
           </ul>
         </div>

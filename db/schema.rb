@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091203002718) do
+ActiveRecord::Schema.define(:version => 20091203051234) do
 
   create_table "assignments", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20091203002718) do
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
+    t.integer  "points"
   end
 
   create_table "courses", :force => true do |t|
@@ -31,6 +32,10 @@ ActiveRecord::Schema.define(:version => 20091203002718) do
     t.integer  "professor_id"
     t.integer  "quicklink_id"
     t.text     "information"
+    t.string   "syllabus_file_name"
+    t.string   "syllabus_content_type"
+    t.integer  "syllabus_file_size"
+    t.datetime "syllabus_updated_at"
   end
 
   create_table "courses_students", :id => false, :force => true do |t|
@@ -39,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20091203002718) do
   end
 
   create_table "grades", :force => true do |t|
-    t.integer  "points_poss"
     t.integer  "points_earned"
     t.datetime "created_at"
     t.datetime "updated_at"

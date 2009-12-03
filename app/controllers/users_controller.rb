@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_one_user
   layout "no_user"
 
   def new
