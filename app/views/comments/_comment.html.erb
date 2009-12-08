@@ -1,0 +1,13 @@
+<% div_for comment do %>
+  <%= gravatar_for comment.user %>
+  <p>
+    <%= h(comment.content) %>
+  </p>
+  <small>
+    <strong>Posted <%= time_ago_in_words(comment.created_at) %></strong>
+  </small>
+  <% if comment.user == current_user %>
+    <small class="red"><%= link_to 'delete', comment_path(comment),
+      :confirm => 'Are you sure?', :method => :delete %></small>
+  <% end %>
+<% end %>

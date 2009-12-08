@@ -1,1 +1,16 @@
-TODO add readme content
+To get things set up just do a:
+
+'rake gems:install'
+
+and you should be good to go.
+
+'./script/server'
+
+waltz over to:
+
+http://localhost:3000/
+
+and login with:
+
+username: jarod
+password: jarod

@@ -12,18 +12,18 @@
       <div class="wrapper">
 
         <div id="logo">
-          <h1>homeroom <span> | administration</h1>
+          <h1>homeroom <span> | administration </span></h1>
           </div>
 
-          <% if current_user %> 
+          <% if current_user %>
             <div id="login">
               <p>Logged in as <%= current_user_name %> (<%= link_to 'Log-out', logout_path %>)</p>
-            </div>		
+            </div>
 
             <div id="nav">
-              <%= navigation([ 
+              <%= navigation([
                 {:home => root_path},
-                {:overview => admin_root_path}, 
+                {:overview => admin_root_path},
                 {:users => admin_users_path},
                 {:courses => admin_courses_path},
                 {:assignments => admin_assignments_path},
@@ -42,7 +42,7 @@
 
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <%- end -%> 
+    <%- end -%>
 
 
     <div class="wrapper">

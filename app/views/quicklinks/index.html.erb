@@ -1,0 +1,10 @@
+<h2 class="header">Your quicklinks</h2>
+
+<div class="content">
+  <ul class="links">
+    <% @quicklinks.each do |link| %>
+      <li><%= link_to link.title, link.url %><small class="red"> <%= link_to 'delete', quicklink_path(link), :confirm => 'Are you sure?',
+      :method => 'delete' %></small></li>
+    <% end %>
+  </ul>
+</div>

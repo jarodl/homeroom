@@ -4,6 +4,7 @@
   <head>
     <title><%= h(yield(:title) || "homeroom | effective class management") %></title>
     <%= stylesheet_link_tag 'style' %>
+    <%= javascript_include_tag :all %>
     <%= yield(:head) %>
   </head>
   <body>
@@ -17,7 +18,7 @@
 
           <div id="login">
             <p>Logged in as <%= current_user_name %> (<%= link_to 'Log-out', logout_path %>)</p>
-          </div>		
+          </div>
 
           <div id="nav">
             <ul class="navigation">
@@ -41,7 +42,7 @@
 
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <%- end -%> 
+    <%- end -%>
 
 
     <div class="wrapper">
@@ -52,7 +53,7 @@
 
         <div class="col" id="right-col">
 
-          <%= link_to '<div id="add">New quick link</div>', new_quicklink_path, :class => :button %>
+          <%= link_to '<div id="add">Link to this page</div>', { :controller => 'quicklinks', :action => 'new', :original_link => request.request_uri}, :class => :button %>
 
           <% unless current_user.quicklinks.empty? %>
             <div id="links">
@@ -61,12 +62,12 @@
               <ul class="links">
 
                 <% current_user.quicklinks.each do |quicklink| %>
-                  <li><%= link_to quicklink.title, {} %></li>
+                  <li><%= link_to quicklink.title, quicklink.url%></li>
                 <% end %>
 
               </ul>
 
-              <small><%= link_to 'Edit quick links', {} %></small>
+              <small><%= link_to 'Edit quick links', quicklinks_path %></small>
             </div>
           <% end %>
 

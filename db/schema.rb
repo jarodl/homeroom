@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091203073241) do
+ActiveRecord::Schema.define(:version => 20091208061032) do
 
   create_table "assignments", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20091203073241) do
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
     t.integer  "points"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "courses", :force => true do |t|
@@ -68,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20091203073241) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "url"
   end
 
   create_table "sessions", :force => true do |t|

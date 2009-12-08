@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :students
   map.resources :courses, :has_many => :assignments
+  map.resources :assignments, :has_many => :comments
+  map.resources :comments, :belongs_to => :assignment, :belongs_to => :user
   map.resources :quicklinks
   map.resources :materials
 

@@ -16,4 +16,22 @@
   <%= submit_tag 'Upload', {:class => 'blank'}%>
   </p>
 
+  <div id="comments">
+    <% if !@assignment.comments.empty? %>
+      <h3 class="header">Comments</h3>
+      <%= render :partial => @assignment.comments %>
+    <% end %>
+  </div>
+
+  <div class="new_comment">
+    <h3 class="header">Add a new comment</h3>
+    <% remote_form_for [@assignment, Comment.new] do |f| %>
+      <p>
+        <%= f.text_area :content %>
+      </p>
+
+      <p><%= f.submit "Add Comment", :class => 'blank' %></p>
+    <% end %>
+  </div>
+
 </div>
